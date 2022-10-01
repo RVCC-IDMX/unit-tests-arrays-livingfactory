@@ -1,3 +1,6 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable arrow-parens */
 /*
  * arrays-03.js
  * Language: javascript
@@ -17,7 +20,11 @@
  * ? must use the forEach() array method - https://youtu.be/GNXZpM-15Xg
  */
 function addUpArrayElements(arr) {
-  // write your code here & return value
+  let sum = 0;
+  arr.forEach(item => {
+    sum += item;
+  });
+  return sum;
 }
 
 /**
@@ -28,7 +35,7 @@ function addUpArrayElements(arr) {
  * ? must use the map() array method - https://youtu.be/nO4fLugOX9k
  */
 function makeSquareNumbers(arr) {
-  // write your code here & return value
+  return arr.map(x => x ** 2);
 }
 
 /**
@@ -42,7 +49,7 @@ function makeSquareNumbers(arr) {
  * ? must use the filter() array method - https://youtu.be/JY5HUDMudew
  */
 function filterForLargeWords(arr, length) {
-  // write your code here & return value
+  return arr.filter((n) => n.length > length);
 }
 
 /**
@@ -53,7 +60,7 @@ function filterForLargeWords(arr, length) {
  * ? must use the find() array method - https://youtu.be/KCx0mQEC4Zw
  */
 function findTheFirstEvenNumber(arr) {
-  // write your code here & return value
+  return arr.find(item => item % 2 === 0);
 }
 
 /**
@@ -65,7 +72,13 @@ function findTheFirstEvenNumber(arr) {
  * ? must use the sort() array method - https://youtu.be/3bLjcUmWveA
  */
 function sortCaseSensitive(arr) {
-  // write your code here & return value
+  let newSortedArray = arr.slice();
+  newSortedArray = newSortedArray.sort((a, b) => {
+    let x = a.toUpperCase();
+    let y = b.toUpperCase();
+    return x === y ? 0 : x > y ? 1 : -1;
+  });
+  return newSortedArray;
 }
 
 /**
@@ -78,7 +91,7 @@ function sortCaseSensitive(arr) {
  * ? must the join() array method - https://youtu.be/90MVWda5DlM
  */
 function makeTheString(arr, separator) {
-  // write your code here & return value
+  return arr.join(separator);
 }
 
 /**
@@ -90,7 +103,8 @@ function makeTheString(arr, separator) {
  *  must use the reverse on a shallow copy of the original array - https://bit.ly/39ASLc0
  */
 function reverseTheArray(arr) {
-  // write your code here & return value
+  const copiedArray = arr.slice();
+  return copiedArray.reverse();
 }
 
 /**
@@ -102,7 +116,12 @@ function reverseTheArray(arr) {
  * ? must use the concat() array method - https://bit.ly/3lZkNE2
  */
 function makeMirrorArray(arr) {
-  // write your code here & return value
+  let copiedArray = arr.slice();
+  let finalArray = arr.slice();
+  copiedArray.reverse();
+  finalArray.pop();
+  finalArray = finalArray.concat(copiedArray);
+  return finalArray;
 }
 
 /**
@@ -115,7 +134,12 @@ function makeMirrorArray(arr) {
  * ? must use the slice() array method - https://youtu.be/ok-dya7hNm0
  */
 function dropRight(arr, n) {
-  // write your code here & return value
+  let copiedArray = arr.slice();
+  let popCount = 0;
+  for (popCount = 0; popCount < n; popCount++) {
+    copiedArray.pop()
+  }
+  return copiedArray;
 }
 
 /**
@@ -128,7 +152,12 @@ function dropRight(arr, n) {
  * ? must use the slice() array method - https://youtu.be/ok-dya7hNm0
  */
 function dropLeft(arr, n) {
-  // write your code here & return value
+  let copiedArray = arr.slice();
+  let shiftCount = 0;
+  for (shiftCount = 0; shiftCount < n; shiftCount++) {
+    copiedArray.shift()
+  }
+  return copiedArray;
 }
 
 /**
@@ -141,7 +170,12 @@ function dropLeft(arr, n) {
  * ? must use the includes() array method - https://youtu.be/GNnHej31OGY
  */
 function checkArrayForValue(arr, val) {
-  // write your code here & return value
+  let indexCount = 0;
+  let absolSum = 0;
+  for (indexCount = 0; indexCount < nums.length; indexCount++) {
+    absolSum += Math.abs(nums[indexCount]);
+  }
+  return absolSum;
 }
 
 module.exports = {
