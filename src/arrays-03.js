@@ -155,7 +155,7 @@ function dropLeft(arr, n) {
   let copiedArray = arr.slice();
   let shiftCount = 0;
   for (shiftCount = 0; shiftCount < n; shiftCount++) {
-    copiedArray.shift()
+    copiedArray.shift();
   }
   return copiedArray;
 }
@@ -170,12 +170,7 @@ function dropLeft(arr, n) {
  * ? must use the includes() array method - https://youtu.be/GNnHej31OGY
  */
 function checkArrayForValue(arr, val) {
-  let indexCount = 0;
-  let absolSum = 0;
-  for (indexCount = 0; indexCount < nums.length; indexCount++) {
-    absolSum += Math.abs(nums[indexCount]);
-  }
-  return absolSum;
+  return arr.includes(val);
 }
 
 module.exports = {
